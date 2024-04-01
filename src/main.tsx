@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
 import { GTMAnalytics } from './utils/gtm.ts';
 
-const GTMId = '123123123123';
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <App />,
+    },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        {GTMId && <GTMAnalytics GTMId={GTMId} />}
-        <App />
+        <GTMAnalytics />
+        <RouterProvider router={router} />
     </React.StrictMode>
 );

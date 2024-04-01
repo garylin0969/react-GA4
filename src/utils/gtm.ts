@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 
 interface GTMAnalyticsProp {
-    GTMId: string;
+    GTMId?: string;
 }
 
 type WindowWithDataLayer = Window & {
@@ -47,7 +47,9 @@ export type GaActionType = Partial<Record<GTMEventKey, string | undefined>> & {
     [GTMEventKey.EVENT_NAME]: CustomEventName | undefined;
 };
 
-export const GTMAnalytics: FC<GTMAnalyticsProp> = ({ GTMId }) => {
+const GTMId = '';
+
+export const GTMAnalytics: FC<GTMAnalyticsProp> = () => {
     useEffect(() => {
         const script = document.createElement('script');
         script.async = true;

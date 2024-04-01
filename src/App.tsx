@@ -1,18 +1,19 @@
-import { sendGTM, GTMEventKey, CustomEventName } from './utils/gtm';
+import { sendGTM, GTMEventKey, CustomEventName, GTMConstants } from './utils/gtm';
 
 function App() {
     return (
         <>
-            <h1
+            <a
                 onClick={() => {
                     sendGTM({
-                        [GTMEventKey.EVENT_NAME]: CustomEventName.CLICK,
-                        [GTMEventKey.CLICK_ITEM]: 'GA4',
+                        [GTMEventKey.EVENT_NAME]: CustomEventName.CLICK_QUOTE,
+                        [GTMEventKey.SECTION]: `${GTMConstants.SECTION_PLACEHOLDER}_SECTION`,
+                        [GTMEventKey.CLICK_ITEM]: '測試測試',
                     });
                 }}
             >
                 GA4
-            </h1>
+            </a>
         </>
     );
 }
